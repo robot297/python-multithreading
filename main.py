@@ -12,7 +12,8 @@ if __name__ == "__main__":
     start = time.time()
     # threads = []
     # for item in range(0, len(big_list)):
-    #     thread = threading.Thread(target=dictionary_writer, args=[item, big_list[item]])
+    #     # thread = threading.Thread(target=dictionary_writer, args=[item, big_list[item]])
+    #     thread = threading.Thread(target=file_writer, args=[item, big_list[item]])
     #     threads.append(thread)
     #     thread.start()
 
@@ -24,5 +25,5 @@ if __name__ == "__main__":
             future = executor.submit(dictionary_writer, item, big_list[item])
             master_dictionary.update(future.result())
 
-    print(master_dictionary)
+    dictionary_file_writer(master_dictionary)
     print(f'{start - time.time()}')
